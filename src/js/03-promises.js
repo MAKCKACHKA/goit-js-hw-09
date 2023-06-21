@@ -1,9 +1,9 @@
 import Notiflix from 'notiflix';
 
 const form = document.querySelector('.form');
-const delayInput = form.elements.delay;
-const stepInput = form.elements.step;
-const amountInput = form.elements.amount;
+let delayInput = form.elements.delay;
+let stepInput = form.elements.step;
+let amountInput = form.elements.amount;
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -35,4 +35,7 @@ form.addEventListener('submit', event => {
         Notiflix.Notify.failure(`Rejected promise ${position} in ${delay}ms`);
       });
   }
+  delayInput.value = '';
+  stepInput.value = '';
+  amountInput.value = '';
 });
